@@ -1,0 +1,76 @@
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-8gwfx[0m
+{"level":"warn","ts":1573436059.7199929,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573436059.7209034,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-c22pz[0m
+{"level":"warn","ts":1573436060.2964597,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1573436060.298404,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-explore-jenkinsx-go-qs1-master-wb5wb[0m
+{"level":"warn","ts":1573436068.3915095,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573436068.6553276,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/explore-jenkinsx/go-qs1.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:54f14f91e843373650150c88adb7c7ba9ecccf18
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/go-qs1 main.go
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/go-qs1"]                       
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2019/11/11 01:34:43 pushed blob: sha256:44ebb46cd3a2cff1c697484ca7471c28e31dcb8541d5f3218422dbb021737e59
+2019/11/11 01:34:43 pushed blob: sha256:4b4fe42b31c44c31266f3648a73b1d8f6e4deedb2c629a6c8cd1892cadfa1397
+2019/11/11 01:34:44 gcr.io/jx-example-258516/go-qs1:0.0.1: digest: sha256:8a3b01d486e24d74b8930799f3b05993778bfdeb0a35f17d729f6081e147b1ab size: 428
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current *** namespace so skip adding image to be analysed
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/go-qs1 to an unshallow repository
+Generating change log from git ref 9e7c6cf941759915725578dfbe1ea5a0f459e441 => 4d7210b367ae875fe9192c8f71bbfcd2fa911369
+Associating user x-0 in users.jenkins.io with email Brent.Laster@sas.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 54f14f91e843373650150c88adb7c7ba9ecccf18 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Associating user x-0 in users.jenkins.io with email Brent.Laster@sas.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 54f14f91e843373650150c88adb7c7ba9ecccf18 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Finding issues in commit messages using git format
+Updated the release information at https://github.com/explore-jenkinsx/go-qs1/releases/tag/v0.0.1
+generated: /workspace/source/charts/go-qs1/templates/release.yaml
+Created Release go-qs1-0-0-1 resource in namespace ***
+Updating PipelineActivity explore-jenkinsx-go-qs1-master-1 with version 0.0.1
+Updated PipelineActivities explore-jenkinsx-go-qs1-master-1 with release notes URL: https://github.com/explore-jenkinsx/go-qs1/releases/tag/v0.0.1
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file go-qs1-0.0.1.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 409 response: {"error":"file already exists"}
+error: Failed to post chart to http://jenkins-x-chartmuseum:8080/api/charts due to response 409: {"error":"file already exists"}
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-promote-helm-release'. The execution of the pipeline has stopped.[0m
