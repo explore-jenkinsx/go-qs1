@@ -1,0 +1,90 @@
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-pr-2-se-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-rf82b[0m
+{"level":"warn","ts":1573643991.9085226,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573643991.909067,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-pr-2-se-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-vdm6k[0m
+{"level":"warn","ts":1573643993.321004,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1573643993.323025,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-pr-2-se-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-pr-2-se-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-explore-jenkinsx-go-qs1-pr-2-se-2wxff[0m
+{"level":"warn","ts":1573644034.5923362,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573644035.0227916,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/explore-jenkinsx/go-qs1.git @ master in path /workspace/source"}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-pr-2-se-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:54f14f91e843373650150c88adb7c7ba9ecccf18,2:1c1c11845640c45c5bfc25e78ef1aa79512e0442
+DEBUG: ran git fetch --unshallow origin 1c1c11845640c45c5bfc25e78ef1aa79512e0442: 54f14f91e843373650150c88adb7c7ba9ecccf18: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 54f14f91e843373650150c88adb7c7ba9ecccf18 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 1c1c11845640c45c5bfc25e78ef1aa79512e0442 in 
+Merged SHA 1c1c11845640c45c5bfc25e78ef1aa79512e0442 with commit message 'simple demo update' into base branch master
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-pr-2-se-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-linux[0m
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/go-qs1 main.go
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-pr-2-se-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/go-qs1"]                       
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2019/11/13 11:20:50 pushed blob: sha256:668f8a9c480522ef04c90045356ab786647a5f859e07188d81b442ab3c2d5f51
+2019/11/13 11:20:50 pushed blob: sha256:1ba0db1ad8edda4859262da8e8762e0d7c11d96002dcae3267365e3bffbb88aa
+2019/11/13 11:20:51 gcr.io/jx-example-258516/go-qs1:0.0.0-SNAPSHOT-PR-2-1: digest: sha256:8afb3fa1f0b613e2dffdf15ac2a94a87e274287f11375112d91eb13ab675ab81 size: 428
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-pr-2-se-1[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current *** namespace so skip adding image to be analysed
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-pr-2-se-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-2-1/" Chart.yaml
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-2-1/" ../*/Chart.yaml
+sed -i -e "s|repository:.*|repository: gcr.io\/jx-example-258516\/go-qs1|" values.yaml
+sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-2-1/" values.yaml
+echo "  version: 0.0.0-SNAPSHOT-PR-2-1" >> requirements.yaml
+jx step helm build
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-pr-2-se-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-preview[0m
+Creating a preview
+Created environment explore-jenkinsx-go-qs1-pr-2
+Namespace ***-explore-jenkinsx-go-qs1-pr-2 created 
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  config:
+    domain: 35.185.53.106.nip.io
+    exposer: Ingress
+    http: "true"
+preview:
+  image:
+    repository: gcr.io/jx-example-258516/go-qs1
+    tag: 0.0.0-SNAPSHOT-PR-2-1
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.jx/jenkins-x-versions
+
+
+Updating PipelineActivities explore-jenkinsx-go-qs1-pr-2-1 which has status Running
+WARNING: preview application http://go-qs1.***-explore-jenkinsx-go-qs1-pr-2.35.185.53.106.nip.io not available, error was 503 503 Service Temporarily Unavailable, delaying for: 1.023820306s
+WARNING: preview application http://go-qs1.***-explore-jenkinsx-go-qs1-pr-2.35.185.53.106.nip.io not available, error was 503 503 Service Temporarily Unavailable, delaying for: 1.660880159s
+WARNING: preview application http://go-qs1.***-explore-jenkinsx-go-qs1-pr-2.35.185.53.106.nip.io not available, error was 503 503 Service Temporarily Unavailable, delaying for: 2.463319345s
+Preview application is now available at: http://go-qs1.***-explore-jenkinsx-go-qs1-pr-2.35.185.53.106.nip.io
