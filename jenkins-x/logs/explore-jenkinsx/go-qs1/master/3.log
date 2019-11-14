@@ -1,0 +1,86 @@
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-sfnfq[0m
+{"level":"warn","ts":1573699357.2880983,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573699357.2887166,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-62sxw[0m
+{"level":"warn","ts":1573699358.6371138,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1573699358.642151,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-explore-jenkinsx-go-qs1-master-wxttl[0m
+{"level":"warn","ts":1573699365.7226682,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573699365.975518,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/explore-jenkinsx/go-qs1.git @ v0.0.3 in path /workspace/source"}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:64fb9f66823ad58466ffc53bc448dca5cc9ecadb
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/go-qs1 main.go
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/go-qs1"]                       
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2019/11/14 02:42:59 pushed blob: sha256:60459d89343e8a23545ed2b2c247b491506b44fd21a02a805581dbfbb5c1ad82
+2019/11/14 02:42:59 pushed blob: sha256:93431b8df4dfa7f87217230ac7137cf7562749944b81901b1c065833161310e1
+2019/11/14 02:43:00 gcr.io/jx-example-258516/go-qs1:0.0.3: digest: sha256:8b59357897555539544ac49e0f3f8df6a0f02cf6d2410facbfbb3ca6b6fa3485 size: 428
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current *** namespace so skip adding image to be analysed
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/go-qs1 to an unshallow repository
+Generating change log from git ref 7b292f9149d8ae9c7d0a5ed0983db672bb29f5d6 => 14f7f4c6e844a6c0b147f1869fbbbad17b91b609
+Associating user x-0 in users.jenkins.io with email Brent.Laster@sas.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 1c1c11845640c45c5bfc25e78ef1aa79512e0442 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Associating user x-0 in users.jenkins.io with email Brent.Laster@sas.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 1c1c11845640c45c5bfc25e78ef1aa79512e0442 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Finding issues in commit messages using git format
+WARNING: No release found for explore-jenkinsx/go-qs1 and tag v0.0.3 so creating a new release
+Updated the release information at https://github.com/explore-jenkinsx/go-qs1/releases/tag/v0.0.3
+generated: /workspace/source/charts/go-qs1/templates/release.yaml
+Created Release go-qs1-0-0-3 resource in namespace ***
+Updating PipelineActivity explore-jenkinsx-go-qs1-master-3 with version 0.0.3
+Updated PipelineActivities explore-jenkinsx-go-qs1-master-3 with release notes URL: https://github.com/explore-jenkinsx/go-qs1/releases/tag/v0.0.3
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file go-qs1-0.0.3.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs1-master-xcjtq-3[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/jx/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app go-qs1 version 0.0.3 to namespace ***-staging
+Created Pull Request: https://github.com/explore-jenkinsx/environment-jx-***-staging/pull/3
+Added label updatebot to Pull Request https://github.com/explore-jenkinsx/environment-jx-***-staging/pull/3
+got git provider status pending from PR https://github.com/explore-jenkinsx/environment-jx-***-staging/pull/3
+got git provider status pending from PR https://github.com/explore-jenkinsx/environment-jx-***-staging/pull/3
+got git provider status pending from PR https://github.com/explore-jenkinsx/environment-jx-***-staging/pull/3
+Pull Request https://github.com/explore-jenkinsx/environment-jx-***-staging/pull/3 is merged at sha 8edd13268a4466eacae6086a41f096cbbb5fd2ff
+Pull Request merged but we are not waiting for the update pipeline to complete!
